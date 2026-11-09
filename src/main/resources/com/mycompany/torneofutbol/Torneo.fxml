@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/13"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.mycompany.torneofutbol.controladores.TorneoController"
+            style="-fx-background-color: #F7F7F7;">
+
+    <top>
+        <VBox spacing="5" style="-fx-background-color: #E2F0D9;">
+            <padding><Insets top="18" right="22" bottom="18" left="22"/></padding>
+            <Label text="SISTEMA DE GESTIÓN DE TORNEOS DE FÚTBOL"
+                   style="-fx-font-size: 21px; -fx-font-weight: bold; -fx-text-fill: #404040;"/>
+            <Label text="Registro y administración de equipos, jugadores y encuentros"
+                   style="-fx-text-fill: #666666;"/>
+        </VBox>
+    </top>
+
+    <center>
+        <VBox spacing="12">
+            <padding><Insets top="16" right="22" bottom="18" left="22"/></padding>
+            <Label text="Administración del torneo"
+                   style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #404040;"/>
+            <TabPane fx:id="pestanas" VBox.vgrow="ALWAYS">
+        <Tab text="Administrador" closable="false">
+            <VBox spacing="12">
+                <padding><Insets top="16" right="18" bottom="16" left="18"/></padding>
+                <Label text="Datos de Administrador" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #404040;"/>
+                <GridPane hgap="12" vgap="5">
+                    <columnConstraints>
+                        <ColumnConstraints minWidth="160" halignment="RIGHT"/>
+                        <ColumnConstraints hgrow="ALWAYS" percentWidth="70"/>
+                    </columnConstraints>
+                <Label text="Usuario:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <TextField fx:id="txtAdministradorUsuario" promptText="Usuario" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                <Label fx:id="lblAdministradorUsuarioError" text="" style="-fx-text-fill: #C00000; -fx-font-size: 11px;" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                <Label text="Nombre:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                <TextField fx:id="txtAdministradorNombre" promptText="Nombre" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+                <Label fx:id="lblAdministradorNombreError" text="" style="-fx-text-fill: #C00000; -fx-font-size: 11px;" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+                <Label text="Apellidos:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                <TextField fx:id="txtAdministradorApellidos" promptText="Apellidos" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+                <Label fx:id="lblAdministradorApellidosError" text="" style="-fx-text-fill: #C00000; -fx-font-size: 11px;" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+                <Label text="Correo:" GridPane.rowIndex="6" GridPane.columnIndex="0"/>
+                <TextField fx:id="txtAdministradorCorreo" promptText="Correo" GridPane.rowIndex="6" GridPane.columnIndex="1"/>
+                <Label fx:id="lblAdministradorCorreoError" text="" style="-fx-text-fill: #C00000; -fx-font-size: 11px;" GridPane.rowIndex="7" GridPane.columnIndex="1"/>
+                </GridPane>
+                <Separator/>
+                <Label text="Listado de registros" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+                <ListView fx:id="listaAdministrador" prefHeight="180" VBox.vgrow="ALWAYS">
+                    <placeholder><Label text="No hay registros capturados"/></placeholder>
+                </ListView>
+            </VBox>
+        </Tab>
+        <Tab text="Equipo" closable="false">
+            <VBox spacing="12">
+                <padding><Insets top="16" right="18" bottom="16" left="18"/></padding>
+                <Label text="Datos de Equipo" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #404040;"/>
+                <GridPane hgap="12" vgap="5">
+                    <columnConstraints>
+                        <ColumnConstraints minWidth="160" halignment="RIGHT"/>
+                        <ColumnConstraints hgrow="ALWAYS" percentWidth="70"/>
+                    </columnConstraints>
+                <Label text="Nombre del equipo:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <TextField fx:id="txtEquipoNombre" promptText="Nombre del equipo" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                <Label fx:id="lblEquipoNombreError" text="" style="-fx-text-fill: #C00000; -fx-font-size: 11px;" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                <Label text="Ciudad:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                <TextField fx:id="txtEquipoCiudad" promptText="Ciudad" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+                <Label fx:id="lblEquipoCiudadError" text="" style="-fx-text-fill: #C00000; -fx-font-size: 11px;" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+                <Label text="Entrenador:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                <TextField fx:id="txtEquipoEntrenador" promptText="Entrenador" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+                <Label fx:id="lblEquipoEntrenadorError" text="" style="-fx-text-fill: #C00000; -fx-font-size: 11px;" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+                </GridPane>
+                <Separator/>
+                <Label text="Listado de registros" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+                <ListView fx:id="listaEquipo" prefHeight="180" VBox.vgrow="ALWAYS">
+                    <placeholder><Label text="No hay registros capturados"/></placeholder>
+                </ListView>
+            </VBox>
+        </Tab>
+        <Tab text="Jugador" closable="false">
+            <VBox spacing="12">
+                <padding><Insets top="16" right="18" bottom="16" left="18"/></padding>
+                <Label text="Datos de Jugador" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #404040;"/>
+                <GridPane hgap="12" vgap="5">
+                    <columnConstraints>
+                        <ColumnConstraints minWidth="160" halignment="RIGHT"/>
+                        <ColumnConstraints hgrow="ALWAYS" percentWidth="70"/>
+                    </columnConstraints>
+                <Label text="Nombre:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <TextField fx:id="txtJugadorNombre" promptText="Nombre" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                <Label fx:id="lblJugadorNombreError" text="" style="-fx-text-fill: #C00000; -fx-font-size: 11px;" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                <Label text="Apellidos:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                <TextField fx:id="txtJugadorApellidos" promptText="Apellidos" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+                <Label fx:id="lblJugadorApellidosError" text="" style="-fx-text-fill: #C00000; -fx-font-size: 11px;" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+                <Label text="Número de camiseta:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                <TextField fx:id="txtJugadorNumero" promptText="Número de camiseta" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+                <Label fx:id="lblJugadorNumeroError" text="" style="-fx-text-fill: #C00000; -fx-font-size: 11px;" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+                <Label text="Posición:" GridPane.rowIndex="6" GridPane.columnIndex="0"/>
+                <TextField fx:id="txtJugadorPosicion" promptText="Posición" GridPane.rowIndex="6" GridPane.columnIndex="1"/>
+                <Label fx:id="lblJugadorPosicionError" text="" style="-fx-text-fill: #C00000; -fx-font-size: 11px;" GridPane.rowIndex="7" GridPane.columnIndex="1"/>
+                </GridPane>
+                <Separator/>
+                <Label text="Listado de registros" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+                <ListView fx:id="listaJugador" prefHeight="180" VBox.vgrow="ALWAYS">
+                    <placeholder><Label text="No hay registros capturados"/></placeholder>
+                </ListView>
+            </VBox>
+        </Tab>
+        <Tab text="Partido" closable="false">
+            <VBox spacing="12">
+                <padding><Insets top="16" right="18" bottom="16" left="18"/></padding>
+                <Label text="Datos de Partido" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #404040;"/>
+                <GridPane hgap="12" vgap="5">
+                    <columnConstraints>
+                        <ColumnConstraints minWidth="160" halignment="RIGHT"/>
+                        <ColumnConstraints hgrow="ALWAYS" percentWidth="70"/>
+                    </columnConstraints>
+                <Label text="Jornada:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <TextField fx:id="txtPartidoJornada" promptText="Jornada" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                <Label fx:id="lblPartidoJornadaError" text="" style="-fx-text-fill: #C00000; -fx-font-size: 11px;" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                <Label text="Fecha (dd/mm/aaaa):" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                <TextField fx:id="txtPartidoFecha" promptText="Fecha (dd/mm/aaaa)" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+                <Label fx:id="lblPartidoFechaError" text="" style="-fx-text-fill: #C00000; -fx-font-size: 11px;" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+                <Label text="Equipo local:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                <TextField fx:id="txtPartidoLocal" promptText="Equipo local" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+                <Label fx:id="lblPartidoLocalError" text="" style="-fx-text-fill: #C00000; -fx-font-size: 11px;" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+                <Label text="Equipo visitante:" GridPane.rowIndex="6" GridPane.columnIndex="0"/>
+                <TextField fx:id="txtPartidoVisitante" promptText="Equipo visitante" GridPane.rowIndex="6" GridPane.columnIndex="1"/>
+                <Label fx:id="lblPartidoVisitanteError" text="" style="-fx-text-fill: #C00000; -fx-font-size: 11px;" GridPane.rowIndex="7" GridPane.columnIndex="1"/>
+                </GridPane>
+                <Separator/>
+                <Label text="Listado de registros" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+                <ListView fx:id="listaPartido" prefHeight="180" VBox.vgrow="ALWAYS">
+                    <placeholder><Label text="No hay registros capturados"/></placeholder>
+                </ListView>
+            </VBox>
+        </Tab>
+        <Tab text="Resultado" closable="false">
+            <VBox spacing="12">
+                <padding><Insets top="16" right="18" bottom="16" left="18"/></padding>
+                <Label text="Datos de Resultado" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #404040;"/>
+                <GridPane hgap="12" vgap="5">
+                    <columnConstraints>
+                        <ColumnConstraints minWidth="160" halignment="RIGHT"/>
+                        <ColumnConstraints hgrow="ALWAYS" percentWidth="70"/>
+                    </columnConstraints>
+                <Label text="Partido:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <TextField fx:id="txtResultadoPartido" promptText="Partido" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                <Label fx:id="lblResultadoPartidoError" text="" style="-fx-text-fill: #C00000; -fx-font-size: 11px;" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                <Label text="Goles local:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                <TextField fx:id="txtResultadoGolesLocal" promptText="Goles local" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+                <Label fx:id="lblResultadoGolesLocalError" text="" style="-fx-text-fill: #C00000; -fx-font-size: 11px;" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+                <Label text="Goles visitante:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                <TextField fx:id="txtResultadoGolesVisitante" promptText="Goles visitante" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+                <Label fx:id="lblResultadoGolesVisitanteError" text="" style="-fx-text-fill: #C00000; -fx-font-size: 11px;" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+                </GridPane>
+                <Separator/>
+                <Label text="Listado de registros" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+                <ListView fx:id="listaResultado" prefHeight="180" VBox.vgrow="ALWAYS">
+                    <placeholder><Label text="No hay registros capturados"/></placeholder>
+                </ListView>
+            </VBox>
+        </Tab>
+        <Tab text="Posiciones" closable="false">
+            <VBox spacing="12">
+                <padding><Insets top="16" right="18" bottom="16" left="18"/></padding>
+                <Label text="Datos de la posición" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #404040;"/>
+                <GridPane hgap="12" vgap="5">
+                    <columnConstraints>
+                        <ColumnConstraints minWidth="160" halignment="RIGHT"/>
+                        <ColumnConstraints hgrow="ALWAYS" percentWidth="70"/>
+                    </columnConstraints>
+                <Label text="Equipo:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <TextField fx:id="txtPosicionEquipo" promptText="Equipo" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                <Label fx:id="lblPosicionEquipoError" text="" style="-fx-text-fill: #C00000; -fx-font-size: 11px;" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                <Label text="Puntos:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                <TextField fx:id="txtPosicionPuntos" promptText="Puntos" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+                <Label fx:id="lblPosicionPuntosError" text="" style="-fx-text-fill: #C00000; -fx-font-size: 11px;" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+                <Label text="Partidos jugados:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                <TextField fx:id="txtPosicionJugados" promptText="Partidos jugados" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+                <Label fx:id="lblPosicionJugadosError" text="" style="-fx-text-fill: #C00000; -fx-font-size: 11px;" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+                <Label text="Diferencia de goles:" GridPane.rowIndex="6" GridPane.columnIndex="0"/>
+                <TextField fx:id="txtPosicionDiferencia" promptText="Diferencia de goles" GridPane.rowIndex="6" GridPane.columnIndex="1"/>
+                <Label fx:id="lblPosicionDiferenciaError" text="" style="-fx-text-fill: #C00000; -fx-font-size: 11px;" GridPane.rowIndex="7" GridPane.columnIndex="1"/>
+                </GridPane>
+                <Separator/>
+                <Label text="Listado de registros" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+                <ListView fx:id="listaPosicion" prefHeight="180" VBox.vgrow="ALWAYS">
+                    <placeholder><Label text="No hay registros capturados"/></placeholder>
+                </ListView>
+            </VBox>
+        </Tab>
+            </TabPane>
+            <Separator/>
+            <Label text="Operaciones" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+            <HBox spacing="8" alignment="CENTER">
+                <Button text="Nuevo" onAction="#nuevo" maxWidth="Infinity" HBox.hgrow="ALWAYS" style="-fx-background-color: #C6E0B4;"/>
+                <Button text="Validar" onAction="#validar" maxWidth="Infinity" HBox.hgrow="ALWAYS" style="-fx-background-color: #BDD7EE;"/>
+                <Button fx:id="btnGuardar" text="Guardar" onAction="#guardar" disable="true" maxWidth="Infinity" HBox.hgrow="ALWAYS" style="-fx-background-color: #D9E2F3;"/>
+                <Button fx:id="btnEditar" text="Editar" onAction="#editar" disable="true" maxWidth="Infinity" HBox.hgrow="ALWAYS" style="-fx-background-color: #FCE4D6;"/>
+                <Button fx:id="btnEliminar" text="Eliminar" onAction="#eliminar" disable="true" maxWidth="Infinity" HBox.hgrow="ALWAYS" style="-fx-background-color: #F4CCCC;"/>
+                <Button text="Limpiar / Cancelar" onAction="#limpiar" maxWidth="Infinity" HBox.hgrow="ALWAYS" style="-fx-background-color: #E7E6E6;"/>
+            </HBox>
+            <Label fx:id="lblMensaje" text="Listo para gestionar el torneo." style="-fx-text-fill: #666666;"/>
+        </VBox>
+    </center>
+</BorderPane>
